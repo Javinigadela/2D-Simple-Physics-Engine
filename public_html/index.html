@@ -5,20 +5,35 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body onkeydown="return userControl(event);">
+    <body onkeydown="return userControl(event);"
+          onload="var test = new Testing();
+          gEngine.Core.initializeEngineCore()">
         <table style="padding: 2px">
             <tr>
                 <td>
-                    <div>
-                        <canvas id="canvas"></canvas>
-                    </div>
+                    <div><canvas id="canvas"></canvas></div>
+                </td>
+                <td>
+                    <div id="uiEchoString"></div>
                 </td>
             </tr>
         </table>
         
         <!-- Scripts -->
-        <script type="text/javascript" src="EngineCore/Core.js"></script>
-        <script type="text/javascript" src="Lib/Vec2.js"></script>
+        <!-- Site Root -->
+            <!-- Core -->
+                <script type="text/javascript" src="EngineCore/Core.js"></script>
+                
+            <!-- Lib -->
+                <script type="text/javascript" src="Lib/Vec2.js"></script>
+                
+            <!-- RigidBody -->
+                <script type="text/javascript" src="RigidBody/RigidShape.js"></script>
+                <script type="text/javascript" src="RigidBody/Rectangle.js"></script>
+                <script type="text/javascript" src="RigidBody/Circle.js"></script>
+        
         <script type="text/javascript" src="UserControl.js"></script>
+        <script type="text/javascript" src="Testing.js"></script>
+        
     </body>
 </html>

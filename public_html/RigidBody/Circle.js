@@ -5,10 +5,11 @@
  */
 
 
-var Circle = function(center, radius){
+var Circle = function(center, radius, fix){
     RigidShape.call(this, center);
     this.mType = "Circle";
     this.mRadius = radius;
+    this.mFix = fix;
     // The start point of line in circle
     this.mStartPoint = new Vec2(center.x, center.y - radius);
 };
@@ -26,4 +27,15 @@ Circle.prototype.draw = function(context){
     context.lineTo(this.mCenter.x, this.mCenter.y);
     context.closePath();
     context.stroke();
+};
+Circle.prototype.move = function(v){
+    this.mStartPoint = this.mStartPoint.add(v);
+    this.mCenter = this.mCenter.add(v);
+        return this;
+};
+Circle.prototype.rotate = function(angle){
+    // counterclockwise
+    this.mAngle += angle;
+    this.mStartPoint = this.mStartPoint.rotate(this.mCenter, angle);
+    return this;
 };
