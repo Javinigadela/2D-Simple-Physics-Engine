@@ -5,14 +5,15 @@
  */
 
 
-var Rectangle = function(center, width, height, fix){
+var Rectangle = function(center, width, height){
     RigidShape.call(this, center);
     this.mType = "Rectangle";
     this.mWidth = width;
     this.mHeight = height;
     this.mVertex = [];
     this.mFaceNormal = [];
-    this.mFix = fix;
+    this.mBoundRadius = Math.sqrt(width*width + height*height)/2; // The bounding circle for a rectangle rigid shape is 
+                                                                  //defined as half of the daigonal distance of the rectangle
     
     // Vertex position computation
     this.mVertex[0] = new Vec2(center.x - width/2, center.y - height/2); // top left

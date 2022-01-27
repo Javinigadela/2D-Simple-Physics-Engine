@@ -29,12 +29,16 @@ gEngine.Core = (function(){
         mElapsedTime = mCurrentTime - mPreviousTime;
         mPreviousTime = mCurrentTime;
         mLagTime += mElapsedTime;
-        while(mLagTime >= kMPF){
-            mLagTime -= kMPF;
-            update();
-        }
+        
         updateUIEcho();
         draw();
+        
+        while(mLagTime >= kMPF){
+            mLagTime -= kMPF;
+            gEngine.Physics.collision();
+            update();
+        }
+        
     };
     
     var updateUIEcho = function(){
@@ -50,7 +54,6 @@ gEngine.Core = (function(){
         "<li><b>WASD</b> + <b>QE</b>: Position [Move + Rotate]</li>" +
         "</ul> <hr>" + 
         "<b>F/G</b>: Spawn [Rectangle/Circle] at selected object" + 
-        "<p><b>H</b>: Fix object</p>" +
         "<p><b>R</b>: Reset System</p>" +    
         "<hr>";
     };

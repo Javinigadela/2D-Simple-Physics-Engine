@@ -5,11 +5,11 @@
  */
 
 
-var Circle = function(center, radius, fix){
+var Circle = function(center, radius){
     RigidShape.call(this, center);
     this.mType = "Circle";
     this.mRadius = radius;
-    this.mFix = fix;
+    this.mBoundRadius = radius;
     // The start point of line in circle
     this.mStartPoint = new Vec2(center.x, center.y - radius);
 };

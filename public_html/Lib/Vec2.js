@@ -9,7 +9,7 @@ var Vec2 = function(x, y){
     this.y = y;
 }
 
-Vec2.prototype.lenght = function(){
+Vec2.prototype.length = function(){
     return Math.sqrt(this.x*this.x + this.y*this.y);
 };
 
@@ -40,7 +40,7 @@ Vec2.prototype.rotate = function(center, angle){
     return new Vec2(r[0], r[1]);
 }
 Vec2.prototype.normalize = function(){
-    var len = this.lenght();
+    var len = this.length();
     if(len > 0)
         len = 1/len;
     
